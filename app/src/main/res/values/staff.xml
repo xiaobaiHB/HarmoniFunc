@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="perLine">15</integer>
+    <integer name="gapLines">70</integer>
+    <integer name="numBarPerLine">3</integer>
+    <integer name="widthClef">30</integer>
+</resources>
