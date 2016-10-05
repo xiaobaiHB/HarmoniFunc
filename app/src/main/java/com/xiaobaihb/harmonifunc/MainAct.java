@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.daasuu.library.FPSSurfaceView;
 import com.xiaobaihb.harmonifunc.dsp.TonalityProcessor;
-import com.xiaobaihb.harmonifunc.staffDraw.beatBar;
+import com.xiaobaihb.harmonifunc.staffDraw.meterBase;
 import com.xiaobaihb.harmonifunc.staffDraw.staffBase;
 
 import be.tarsos.dsp.*;
@@ -29,7 +29,7 @@ public class MainAct extends AppCompatActivity {
     TextView debugText;
     FPSSurfaceView staffView;
     AudioDispatcher dispatcher;
-    beatBar m_beatBar = new beatBar();
+    meterBase m_beatBase;
 
     protected String currentTone = "";
     protected double currentToneVal = 0;
@@ -41,6 +41,9 @@ public class MainAct extends AppCompatActivity {
         backGround = (FrameLayout) findViewById(R.id.backGround);
         debugText = (TextView) findViewById(R.id.debugText);
         staffView = (FPSSurfaceView) findViewById(R.id.staffView);
+        m_beatBase = new meterBase(getApplicationContext(),staffView);
+
+        staffView.tickStart();
     }
 
     @Override
@@ -62,9 +65,7 @@ public class MainAct extends AppCompatActivity {
             }
         }));
         new Thread(dispatcher,"Audio Dispatcher").start();
-        new Thread(m_beatBar).start();
-
-
+        new Thread(m_beatBase).start();
 
     }
 

@@ -45,6 +45,7 @@ public class staffBase extends View {
         p2.setColor(Color.BLACK);
         p2.setStrokeWidth(5);
 
+        canvas.drawLine(0 , 0 , width , 0 , p2);
         for (int i=0;i< heigh/(perLine*5+gapLines);i++) {
             int yBegin = gapLines+(perLine*5+gapLines)*i;
             int numBar = (width - widthClef)/(widthClef*4);
